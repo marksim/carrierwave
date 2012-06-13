@@ -98,6 +98,7 @@ module CarrierWave
     #
     def convert(format)
       manipulate! do |img|
+        img.auto_orient
         img.format(format.to_s.downcase)
         img = yield(img) if block_given?
         img
